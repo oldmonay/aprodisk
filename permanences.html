@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nous rendre visite – APRODISC</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="permanences">
+<div id="entete"></div>
+
+<main id="contenu" class="wrap">
+  <p class="fil-ariane"><a href="index.html">Accueil</a> › Nous rendre visite</p>
+  <div class="entete-page r-cours">
+    <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+    <div>
+      <h1>Nous rendre visite</h1>
+      <p>L'association est ouverte <b>un mardi sur deux</b> et <b>un samedi sur deux</b>.</p>
+    </div>
+  </div>
+
+  <section class="deux">
+    <div>
+      <h2>Prochaines permanences</h2>
+      <ul class="liste" id="liste-permanences"></ul>
+    </div>
+    <div>
+      <h2>Où nous trouver</h2>
+      <p><b>Adresse :</b><br><span data-info="adresse"></span></p>
+      <p><b>Lieu :</b><br><span data-info="lieu"></span></p>
+      <table class="simple">
+        <tr><th>Jour</th><th>Horaires</th></tr>
+        <tr><td>Mardi (une semaine sur deux)</td><td id="horaire-mardi"></td></tr>
+        <tr><td>Samedi (une semaine sur deux)</td><td id="horaire-samedi"></td></tr>
+      </table>
+      <p><b>Nous écrire :</b> <span data-info="email"></span></p>
+    </div>
+  </section>
+
+  <section class="encadre astuce">
+    <span class="titre">Pour que votre visite se passe bien</span>
+    <ul>
+      <li>Apportez votre appareil <b>et son chargeur</b>.</li>
+      <li>Notez sur un papier vos <b>mots de passe</b> (ordinateur, messagerie) : nous en aurons souvent besoin.</li>
+      <li>Venez avec vos questions écrites sur une feuille : on n'oublie rien !</li>
+    </ul>
+    <p><a href="articles/preparer-reparation.html">Lire le guide complet pour préparer sa venue →</a></p>
+  </section>
+</main>
+
+<div id="pied"></div>
+<script src="assets/js/donnees.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

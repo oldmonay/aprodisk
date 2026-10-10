@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recherche – APRODISC</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="recherche">
+<div id="entete"></div>
+
+<main id="contenu" class="wrap">
+  <p class="fil-ariane"><a href="index.html">Accueil</a> › Recherche</p>
+  <h1>Rechercher sur le site</h1>
+  <form class="recherche" action="recherche.html" method="get" role="search" style="margin-left:0">
+    <label for="champ-recherche" class="lien-evitement">Rechercher</label>
+    <input id="champ-recherche" name="q" type="search" placeholder="Ex. : faux SMS, lettre Word…">
+    <button type="submit">Chercher</button>
+  </form>
+  <p class="resultats-info" id="resultats-info" role="status"></p>
+  <div class="cartes" id="resultats"></div>
+</main>
+
+<div id="pied"></div>
+<script src="assets/js/donnees.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APRODISC – L'informatique pour tous, à votre rythme</title>
+<meta name="description" content="APRODISC, association d'aide à l'informatique : réparation, cours, tutoriels Word et Excel, fablab et sensibilisation aux arnaques en ligne.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="accueil">
+<div id="entete"></div>
+
+<main id="contenu" class="wrap">
+  <section class="hero">
+    <h1>Bonjour ! Que souhaitez-vous faire&nbsp;?</h1>
+    <p>Faire réparer un appareil, apprendre l'informatique ou vous protéger des arnaques&nbsp;: tout est expliqué pas à pas, avec des mots simples.</p>
+    <form class="recherche" action="recherche.html" method="get" role="search">
+      <label for="q" class="lien-evitement">Rechercher sur le site</label>
+      <input id="q" name="q" type="search" placeholder="Ex. : faux SMS, lettre Word, mot de passe…">
+      <button type="submit">Chercher</button>
+    </form>
+  </section>
+
+  <h2 class="titre-section">Ce que fait l'association</h2>
+  <p class="sous-titre-section">Nos trois missions, choisissez celle qui vous intéresse.</p>
+  <div class="tuiles" id="tuiles-mission"></div>
+
+  <h2 class="titre-section">Tutoriels et activités</h2>
+  <p class="sous-titre-section">Pour aller plus loin, à votre rythme.</p>
+  <div class="tuiles petites" id="tuiles-autres"></div>
+
+  <section class="bandeau">
+    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#b07d00" stroke-width="2" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/></svg>
+    <div>
+      <h2>Un doute sur un message, un appel, un SMS&nbsp;?</h2>
+      <p>Ne cliquez sur rien et ne donnez aucun code. Montrez-le-nous à la prochaine permanence, le <b id="prochaine-date">…</b>&nbsp;: un bénévole regarde avec vous.</p>
+    </div>
+    <a class="action" href="articles/faux-sms-colis.html">Les bons réflexes</a>
+  </section>
+
+  <section class="deux">
+    <div>
+      <h2>Derniers articles</h2>
+      <ul class="liste" id="derniers-articles"></ul>
+    </div>
+    <div>
+      <h2>Prochaines permanences</h2>
+      <ul class="liste" id="prochaines-permanences"></ul>
+      <a class="lien-plus" href="permanences.html">Adresse et toutes les dates →</a>
+    </div>
+  </section>
+</main>
+
+<div id="pied"></div>
+<script src="assets/js/donnees.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

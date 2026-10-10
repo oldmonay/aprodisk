@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suivre ses dépenses du mois avec Excel – APRODISC</title>
+<meta name="description" content="Un petit tableau tout simple pour savoir où va son argent, et laisser Excel faire les calculs.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="article" data-rubrique="excel" data-racine="../">
+<div id="entete"></div>
+
+<main id="contenu" class="wrap">
+  <p class="fil-ariane" id="fil-ariane"></p>
+  <article class="article">
+    <span id="etiquette" class="etiquette"></span>
+    <h1>Suivre ses dépenses du mois avec Excel</h1>
+    <p class="chapo">Un petit tableau tout simple pour savoir où va son argent, et laisser Excel faire les calculs.</p>
+    <p class="meta">Publié le 29 septembre 2026 · 6 étapes</p>
+
+    <p>Voici le tableau que nous allons créer ensemble :</p>
+    <table class="simple">
+      <tr><th></th><th>A</th><th>B</th></tr>
+      <tr><th>1</th><td><b>Dépense</b></td><td><b>Montant (€)</b></td></tr>
+      <tr><th>2</th><td>Courses</td><td>320</td></tr>
+      <tr><th>3</th><td>Électricité</td><td>85</td></tr>
+      <tr><th>4</th><td>Téléphone</td><td>20</td></tr>
+      <tr><th>5</th><td><b>Total</b></td><td><b>425</b> (calculé par Excel)</td></tr>
+    </table>
+
+    <ol class="etapes">
+      <li><b>Ouvrir Excel.</b>Cliquez sur Démarrer, tapez <i>Excel</i>, cliquez sur l'icône verte, puis sur « Nouveau classeur ».</li>
+      <li><b>Comprendre la grille.</b>Chaque petite case s'appelle une <b>cellule</b>. Les colonnes ont des lettres (A, B, C…) et les lignes des numéros (1, 2, 3…). La case en haut à gauche s'appelle donc « A1 ».</li>
+      <li><b>Écrire les titres.</b>Cliquez sur A1, tapez « Dépense », appuyez sur <span class="touche">Tab</span>. Vous êtes en B1 : tapez « Montant (€) », puis appuyez sur <span class="touche">Entrée</span>.</li>
+      <li><b>Remplir les dépenses.</b>En A2 tapez « Courses », en B2 tapez 320. Continuez sur les lignes suivantes. Ne tapez que des chiffres dans la colonne B, sans le signe €.</li>
+      <li><b>Laisser Excel calculer le total.</b>Cliquez sur A5 et tapez « Total ». Cliquez sur B5 et tapez exactement : <b>=SOMME(B2:B4)</b>, puis <span class="touche">Entrée</span>. Le total apparaît !</li>
+      <li><b>Enregistrer.</b>Appuyez sur <span class="touche">Ctrl</span> + <span class="touche">S</span> et nommez le fichier « Budget octobre 2026 ».</li>
+    </ol>
+
+    <div class="encadre retenir">
+      <span class="titre">À retenir</span>
+      <p>Si vous changez un montant (par exemple les courses), le total se met à jour <b>tout seul</b>. C'est toute la magie d'Excel !</p>
+    </div>
+
+    <a class="retour" id="retour-rubrique" href="../index.html">← Retour</a>
+  </article>
+</main>
+
+<div id="pied"></div>
+<script src="../assets/js/donnees.js"></script>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>
