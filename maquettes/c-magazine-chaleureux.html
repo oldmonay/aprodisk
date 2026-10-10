@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APRODISC – Maquette C « Magazine chaleureux »</title>
+<style>
+  :root{--fond:#fbf7f1;--carte:#fff;--texte:#2a2420;--gris:#6b6159;--accent:#0e6e6e;--accent-clair:#dff0ee;--corail:#d9583b;--ligne:#ece3d7}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:1.6;color:var(--texte);background:var(--fond)}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  header{padding:26px 0 0}
+  .haut{display:flex;align-items:center;justify-content:space-between}
+  .logo h1{margin:0;font-size:38px;color:var(--accent)}
+  .logo span{color:var(--gris);font-size:17px}
+  .outils{display:flex;gap:10px;align-items:center;font-size:17px}
+  .outils button{font-size:17px;border:2px solid var(--accent);background:transparent;color:var(--accent);border-radius:30px;padding:8px 16px;font-weight:700}
+  .outils .plein{background:var(--accent);color:#fff}
+
+  nav{margin-top:22px;border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;justify-content:space-between}
+  nav a{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px;font-size:17px;font-weight:700;color:var(--gris);min-width:120px;border-radius:12px}
+  nav a svg{width:34px;height:34px;color:var(--accent)}
+  nav a.actif,nav a:hover{background:var(--accent-clair);color:var(--accent)}
+
+  .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:44px 0}
+  .hero .kicker{color:var(--corail);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:16px}
+  .hero h2{font-size:46px;line-height:1.15;margin:10px 0 16px}
+  .hero p{color:var(--gris);font-size:21px;margin:0 0 24px}
+  .bouton{display:inline-block;background:var(--corail);color:#fff;font-weight:700;padding:16px 28px;border-radius:40px;font-size:20px}
+  .illus{background:var(--accent-clair);border-radius:32px;height:360px;position:relative;overflow:hidden}
+
+  .sec-titre{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 18px}
+  .sec-titre h2{font-size:32px;margin:0}
+  .sec-titre a{color:var(--accent);font-weight:700}
+
+  .articles{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .art{background:var(--carte);border-radius:20px;overflow:hidden;border:1px solid var(--ligne)}
+  .art .img{height:180px;display:grid;place-items:center}
+  .art .img svg{width:84px;height:84px}
+  .art .corps{padding:20px 24px 24px}
+  .art .cat{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+  .art h3{font-size:24px;margin:6px 0 8px;line-height:1.25}
+  .art p{margin:0;color:var(--gris);font-size:18px}
+  .art .meta{margin-top:12px;font-size:16px;color:var(--gris)}
+
+  .agenda{margin:50px 0;background:var(--accent);color:#fff;border-radius:28px;padding:36px 40px;display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:center}
+  .agenda h2{font-size:34px;margin:0 0 8px}
+  .agenda p{margin:0;opacity:.9}
+  .agenda ul{list-style:none;margin:0;padding:0}
+  .agenda li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.25);font-size:20px}
+  .agenda li b{min-width:150px}
+
+  footer{border-top:1px solid var(--ligne);padding:30px 0 40px;color:var(--gris);font-size:18px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="haut">
+    <a class="logo" href="#"><h1>APRODISC</h1><span>Association d'aide au numérique</span></a>
+    <div class="outils">Lecture : <button>A+</button><button>Contraste</button><button class="plein">📞 Nous appeler</button></div>
+  </div>
+  <nav><ul>
+    <li><a class="actif" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/></svg>Accueil</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>Arnaques</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Cours</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12l1.5 5L12 13l1.5 4L15 12"/></svg>Word</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 15h16M10 4v16"/></svg>Excel</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M6 20V9h12v11M9 9V5h6v4"/></svg>Fablab</a></li>
+    <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>Actualités</a></li>
+  </ul></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <span class="kicker">Dossier du mois · Sécurité</span>
+      <h2>Arnaques par téléphone : apprenez à dire « non » en toute confiance</h2>
+      <p>Faux banquier, faux livreur, faux petit-fils… Nos bénévoles vous expliquent les pièges les plus courants et les bons réflexes.</p>
+      <a class="bouton" href="#">Lire le dossier</a>
+    </div>
+    <div class="illus">
+      <svg viewBox="0 0 400 360" width="100%" height="100%">
+        <circle cx="300" cy="80" r="70" fill="#f6c7b8"/>
+        <rect x="120" y="70" width="160" height="250" rx="26" fill="#fff" stroke="#0e6e6e" stroke-width="6"/>
+        <rect x="140" y="100" width="120" height="170" rx="8" fill="#dff0ee"/>
+        <circle cx="200" cy="295" r="10" fill="#0e6e6e"/>
+        <path d="M200 135l38 14v28c0 24-17 38-38 43-21-5-38-19-38-43v-28z" fill="#0e6e6e"/>
+        <path d="M184 178l12 12 22-24" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="40" y="200" width="90" height="56" rx="14" fill="#d9583b"/>
+        <path d="M70 256l-8 18 22-18" fill="#d9583b"/>
+        <text x="85" y="237" font-size="30" font-weight="700" fill="#fff" text-anchor="middle" font-family="Arial">!</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="sec-titre"><h2>À lire cette semaine</h2><a href="#">Tous les articles →</a></div>
+  <section class="articles">
+    <a class="art" href="#"><div class="img" style="background:#e9eef8;color:#2b579a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12l1.5 5L12 13l1.5 4L15 12"/></svg></div>
+      <div class="corps"><span class="cat" style="color:#2b579a">Tuto Word</span><h3>Écrire et imprimer une lettre</h3><p>Pas à pas, avec des captures d'écran.</p><div class="meta">⏱ 10 minutes</div></div></a>
+    <a class="art" href="#"><div class="img" style="background:#e8f5ea;color:#217346"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 15h16M10 4v16"/></svg></div>
+      <div class="corps"><span class="cat" style="color:#217346">Tuto Excel</span><h3>Suivre ses dépenses du mois</h3><p>Un tableau simple pour y voir clair.</p><div class="meta">⏱ 15 minutes</div></div></a>
+    <a class="art" href="#"><div class="img" style="background:#fff0e0;color:#c46a00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16M6 20V9h12v11M9 9V5h6v4"/></svg></div>
+      <div class="corps"><span class="cat" style="color:#c46a00">Fablab</span><h3>Notre imprimante 3D en vidéo</h3><p>Ce qu'on peut fabriquer ensemble.</p><div class="meta">▶ Vidéo 4 minutes</div></div></a>
+  </section>
+
+  <section class="agenda">
+    <div><h2>L'agenda des ateliers</h2><p>Gratuit pour les adhérents. Inscription par téléphone.</p></div>
+    <ul>
+      <li><b>Mar. 14 oct.</b><span>Reconnaître un faux mail</span><span>14h</span></li>
+      <li><b>Ven. 17 oct.</b><span>Excel pour débutants</span><span>10h</span></li>
+      <li><b>Mar. 21 oct.</b><span>Fablab : porte-clés 3D</span><span>14h</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span><b>APRODISC</b> · L'informatique, sans stress</span>
+  <span>📞 01 23 45 67 89 · ✉️ contact@aprodisc.org</span>
+  <span>Adhérer · Mentions légales · Accessibilité</span>
+</div></footer>
+</body>
+</html>

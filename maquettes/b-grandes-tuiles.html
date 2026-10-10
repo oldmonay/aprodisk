@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APRODISC – Maquette B « Grandes tuiles »</title>
+<style>
+  :root{--texte:#111;--gris:#555;--fond:#ffffff;--bleu:#0b5cad;--ligne:#e5e7eb}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Verdana,Arial,sans-serif;font-size:21px;line-height:1.6;color:var(--texte);background:var(--fond)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  header{border-bottom:1px solid var(--ligne)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px}
+  .logo{font-size:32px;font-weight:700;color:var(--bleu);display:flex;align-items:center;gap:12px}
+  .logo i{width:16px;height:16px;border-radius:50%;background:#f4a300;display:inline-block}
+  .menu{display:flex;gap:10px;align-items:center}
+  .menu a{padding:12px 18px;border-radius:10px;font-weight:700;font-size:19px}
+  .menu a:hover{background:#eef4fb}
+  .menu .btn{background:var(--bleu);color:#fff}
+  .menu .btn-menu{border:2px solid var(--bleu);color:var(--bleu);display:flex;gap:8px;align-items:center}
+
+  .hero{padding:52px 0 20px;text-align:center}
+  .hero h1{font-size:44px;margin:0 0 12px;line-height:1.2}
+  .hero p{margin:0 auto;max-width:720px;color:var(--gris);font-size:22px}
+  .recherche{margin:28px auto 0;max-width:720px;display:flex;border:3px solid var(--bleu);border-radius:16px;overflow:hidden}
+  .recherche input{flex:1;border:0;font-size:22px;padding:18px 20px}
+  .recherche button{border:0;background:var(--bleu);color:#fff;font-size:21px;font-weight:700;padding:0 28px}
+
+  .tuiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:40px 0}
+  .tuile{border-radius:22px;padding:30px 26px;display:flex;flex-direction:column;gap:10px;min-height:220px;border:3px solid transparent;transition:transform .15s}
+  .tuile:hover{transform:translateY(-3px);border-color:currentColor}
+  .tuile .ico{width:76px;height:76px;border-radius:20px;display:grid;place-items:center;color:#fff}
+  .tuile .ico svg{width:44px;height:44px}
+  .tuile h2{margin:6px 0 0;font-size:27px}
+  .tuile p{margin:0;font-size:19px;color:#333}
+  .tuile .go{margin-top:auto;font-weight:700}
+  .t-cyber{background:#fdeceb;color:#a3201a} .t-cyber .ico{background:#c62828}
+  .t-cours{background:#e8f1fb;color:#0b5cad} .t-cours .ico{background:#0b5cad}
+  .t-word{background:#e9eef8;color:#2b579a} .t-word .ico{background:#2b579a}
+  .t-excel{background:#e8f5ea;color:#1e6b2a} .t-excel .ico{background:#217346}
+  .t-fablab{background:#fff2e3;color:#a14f00} .t-fablab .ico{background:#e07a00}
+  .t-actu{background:#f1ecfa;color:#4a2a99} .t-actu .ico{background:#6a3fc2}
+
+  .bandeau{background:#fff8e1;border:2px solid #f4c430;border-radius:20px;padding:26px 30px;display:flex;gap:22px;align-items:center;margin-bottom:40px}
+  .bandeau h3{margin:0 0 4px;font-size:25px}
+  .bandeau p{margin:0}
+  .bandeau .appel{margin-left:auto;background:#111;color:#fff;border-radius:14px;padding:16px 24px;font-weight:700;white-space:nowrap}
+
+  .deux{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:50px}
+  .deux h3{font-size:26px;margin:0 0 14px}
+  .liste a{display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--ligne)}
+  .liste .vign{width:84px;height:64px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;color:#fff}
+  .liste .vign svg{width:32px;height:32px}
+  .liste b{display:block;font-size:20px}
+  .liste small{color:var(--gris);font-size:17px}
+
+  footer{background:#0f2440;color:#e6ecf3;padding:36px 0;font-size:19px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="logo" href="#"><i></i>APRODISC</a>
+  <nav class="menu">
+    <a href="#">Accueil</a>
+    <a href="#">Ateliers</a>
+    <a href="#">Contact</a>
+    <a class="btn-menu" href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Toutes les rubriques</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Bonjour ! Que souhaitez-vous apprendre ?</h1>
+    <p>Choisissez une rubrique ci-dessous. Tout est expliqué pas à pas, avec des mots simples.</p>
+    <form class="recherche"><input placeholder="Ex. : envoyer une photo par mail"><button>Chercher</button></form>
+  </section>
+
+  <section class="tuiles">
+    <a class="tuile t-cyber" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <h2>Arnaques &amp; sécurité</h2><p>Reconnaître les faux mails, SMS et appels.</p><span class="go">Se protéger →</span></a>
+    <a class="tuile t-cours" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+      <h2>Cours informatique</h2><p>Ordinateur, tablette, internet, e-mails.</p><span class="go">Apprendre →</span></a>
+    <a class="tuile t-word" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12l1.5 5L12 13l1.5 4L15 12"/></svg></span>
+      <h2>Tutos Word</h2><p>Écrire une lettre, mettre en forme, imprimer.</p><span class="go">Voir les tutos →</span></a>
+    <a class="tuile t-excel" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 15h16M10 4v16"/></svg></span>
+      <h2>Tutos Excel</h2><p>Faire ses comptes, des listes, des tableaux.</p><span class="go">Voir les tutos →</span></a>
+    <a class="tuile t-fablab" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16M6 20V9h12v11M9 9V5h6v4"/></svg></span>
+      <h2>Fablab</h2><p>Impression 3D, bricolage numérique, créations.</p><span class="go">Découvrir →</span></a>
+    <a class="tuile t-actu" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+      <h2>Actualités</h2><p>Les nouvelles de l'association et du numérique.</p><span class="go">Lire →</span></a>
+  </section>
+
+  <section class="bandeau">
+    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#b07d00" stroke-width="2"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/></svg>
+    <div><h3>Un doute sur un message ?</h3><p>Ne cliquez sur rien. Appelez-nous, un bénévole vous répond.</p></div>
+    <a class="appel" href="#">📞 01 23 45 67 89</a>
+  </section>
+
+  <section class="deux">
+    <div>
+      <h3>Derniers tutoriels</h3>
+      <div class="liste">
+        <a href="#"><span class="vign" style="background:#c62828"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/></svg></span><span><b>Faux SMS « colis en attente »</b><small>Arnaques · 3 min de lecture</small></span></a>
+        <a href="#"><span class="vign" style="background:#2b579a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/></svg></span><span><b>Écrire une lettre avec Word</b><small>Tuto Word · 5 étapes</small></span></a>
+        <a href="#"><span class="vign" style="background:#217346"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg></span><span><b>Mes dépenses du mois avec Excel</b><small>Tuto Excel · 6 étapes</small></span></a>
+      </div>
+    </div>
+    <div>
+      <h3>Prochains ateliers</h3>
+      <div class="liste">
+        <a href="#"><span class="vign" style="background:#0b5cad;font-weight:700;font-size:20px">14/10</span><span><b>Reconnaître un faux mail</b><small>Mardi 14h · Salle 2 · Gratuit adhérents</small></span></a>
+        <a href="#"><span class="vign" style="background:#0b5cad;font-weight:700;font-size:20px">17/10</span><span><b>Excel pour débutants</b><small>Vendredi 10h · Salle 1</small></span></a>
+        <a href="#"><span class="vign" style="background:#e07a00;font-weight:700;font-size:20px">21/10</span><span><b>Fablab : porte-clés en 3D</b><small>Mardi 14h · Fablab</small></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span><b>APRODISC</b> — L'informatique pour tous</span>
+  <span>📞 01 23 45 67 89 · ✉️ contact@aprodisc.org</span>
+  <span>Adhérer · Mentions légales</span>
+</div></footer>
+</body>
+</html>
