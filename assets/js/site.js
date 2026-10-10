@@ -68,23 +68,31 @@
   if (tailleActuelle !== 1) appliquerTaille(tailleActuelle);
 
   /* ---------- Permanences : calcul des prochaines dates ---------- */
+  function semaineIso(d) {
+    var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    var j = t.getUTCDay() || 7;
+    t.setUTCDate(t.getUTCDate() + 4 - j);
+    var debut = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+    return Math.ceil(((t - debut) / 864e5 + 1) / 7);
+  }
   function prochainesPermanences(nombre) {
     var auj = new Date(); auj.setHours(0, 0, 0, 0);
     var fermees = D.permanences.fermetures || [];
+    var numeroJour = { mardi: 2, samedi: 6 };
     var dates = [];
-    ["mardi", "samedi"].forEach(function (jour) {
-      var conf = D.permanences[jour];
-      if (!conf || !conf.reference) return;
-      var d = lireDate(conf.reference);
-      while (d < auj) d.setDate(d.getDate() + 14);
-      while (d - auj > 0 && new Date(d.getTime() - 14 * 864e5) >= auj) d.setDate(d.getDate() - 14);
-      for (var n = 0; n < nombre + fermees.length; n++) {
-        var copie = new Date(d.getTime());
-        copie.setDate(copie.getDate() + 14 * n);
-        if (fermees.indexOf(iso(copie)) === -1) dates.push({ date: copie, jour: jour, horaire: conf.horaire });
-      }
-    });
-    dates.sort(function (a, b) { return a.date - b.date; });
+    var d = new Date(auj.getTime());
+    // On parcourt les jours à venir (un an maximum) et on garde ceux qui correspondent.
+    for (var i = 0; i < 366 && dates.length < nombre; i++) {
+      ["mardi", "samedi"].forEach(function (jour) {
+        var conf = D.permanences[jour];
+        if (!conf || d.getDay() !== numeroJour[jour] || fermees.indexOf(iso(d)) !== -1) return;
+        var ok = false;
+        if (conf.semaines) ok = (semaineIso(d) % 2 === 1) === (conf.semaines === "impaires");
+        else if (conf.reference) ok = Math.round((d - lireDate(conf.reference)) / 864e5) % 14 === 0;
+        if (ok) dates.push({ date: new Date(d.getTime()), jour: jour, horaire: conf.horaire, libelle: conf.libelle });
+      });
+      d.setDate(d.getDate() + 1);
+    }
     return dates.slice(0, nombre);
   }
   function horaire(h) { return h ? echap(h) : '<span class="a-completer">horaire à compléter</span>'; }
@@ -96,13 +104,13 @@
     };
     var html =
       '<a class="lien-evitement" href="#contenu">Aller au contenu</a>' +
-      '<div class="barre-haut"><div class="wrap"><span>Ouvert un mardi sur deux et un samedi sur deux · ' +
+      '<div class="barre-haut"><div class="wrap"><span>📍 ' + echap(D.infos.ville) + ' · Permanence un samedi sur deux, FabLab un mardi sur deux · ' +
         '<a href="' + RACINE + 'permanences.html">Voir les dates</a></span>' +
         '<span class="outils-texte">Taille du texte : <button type="button" data-taille="-1" aria-label="Réduire le texte">A-</button>' +
         '<button type="button" data-taille="1" aria-label="Agrandir le texte">A+</button></span></div></div>' +
       '<header class="entete"><div class="wrap">' +
-        '<a class="logo" href="' + RACINE + 'index.html"><i></i><span>' + echap(D.infos.nom) +
-          "<small>" + echap(D.infos.slogan) + "</small></span></a>" +
+        '<a class="logo" href="' + RACINE + 'index.html"><span class="pastilles" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>' +
+          '<span class="logo-nom">@PRODISC</span><small>' + echap(D.infos.slogan) + "</small></span></a>" +
         '<button class="bouton-menu" type="button" aria-expanded="false" aria-controls="menu-principal">☰ Menu</button>' +
         '<nav class="menu" id="menu-principal" aria-label="Menu principal">' +
           lien("index.html", "Accueil", "accueil") +
@@ -146,10 +154,10 @@
     if (!cible) return;
     cible.outerHTML =
       '<footer class="pied"><div class="wrap">' +
-        "<div><h2>" + echap(D.infos.nom) + "</h2><p>" + echap(D.infos.slogan) + ".</p>" +
+        "<div><h2>" + echap(D.infos.nom) + "</h2><p>" + echap(D.infos.nomComplet) + ".</p>" +
           "<p>Réparation, cours d'informatique et sensibilisation aux arnaques.</p></div>" +
         "<div><h2>Nous trouver</h2><p>" + info(D.infos.adresse, "adresse à compléter") + "</p>" +
-          "<p>Un mardi sur deux et un samedi sur deux</p>" +
+          "<p>" + echap(D.infos.ville) + "</p><p>Un samedi sur deux, et un mardi sur deux pour le FabLab</p>" +
           '<p><a href="' + RACINE + 'permanences.html">Voir les prochaines dates</a></p></div>' +
         "<div><h2>Liens</h2><ul>" +
           '<li><a href="' + RACINE + 'association.html">L\'association</a></li>' +
@@ -166,10 +174,10 @@
       "<span><b>" + echap(a.titre) + "</b><small>" + echap(r.titre) + " · " + echap(a.duree) + "</small></span></a></li>";
   }
   function lignePermanence(p) {
-    var cls = p.jour === "mardi" ? "ico-cours" : "ico-reparation";
+    var cls = p.jour === "mardi" ? "ico-fablab" : "ico-cours";
     var jj = p.date.toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit" });
     return '<li><span class="ligne"><span class="vign ' + cls + '">' + jj + "</span>" +
-      "<span><b>" + dateLongue(p.date) + "</b><small>" + horaire(p.horaire) + "</small></span></span></li>";
+      "<span><b>" + dateLongue(p.date) + "</b><small>" + (p.libelle ? echap(p.libelle) + " · " : "") + horaire(p.horaire) + "</small></span></span></li>";
   }
   function carteArticle(a) {
     var r = rubrique(a.rubrique) || { id: a.rubrique };
@@ -190,8 +198,10 @@
     if ((el = $("#derniers-articles"))) el.innerHTML = D.articles.slice(0, 4).map(ligneArticle).join("");
     var perms = prochainesPermanences(4);
     if ((el = $("#prochaines-permanences"))) el.innerHTML = perms.map(lignePermanence).join("");
-    if ((el = $("#prochaine-date")) && perms[0]) {
-      el.innerHTML = dateLongue(perms[0].date).toLowerCase();
+    var permSamedi = perms.filter(function (p) { return p.jour === "samedi"; })[0] || perms[0];
+    if ((el = $("#prochaine-date")) && permSamedi) el.innerHTML = dateLongue(permSamedi.date).toLowerCase();
+    if ((el = $("#prochaine-date-hero")) && permSamedi) {
+      el.innerHTML = dateLongue(permSamedi.date) + (permSamedi.horaire ? ", " + echap(permSamedi.horaire.split(" (")[0]) : "");
     }
   }
 

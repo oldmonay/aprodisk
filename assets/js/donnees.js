@@ -15,19 +15,24 @@ var APRODISC = {};
 APRODISC.infos = {
   nom: "APRODISC",
   slogan: "L'informatique pour tous, à votre rythme",
-  adresse: null,          // ex. "12 rue de la Mairie, 75000 Ville"
+  nomComplet: "Association pour la promotion et le développement de l'informatique à Saint-Caprais-de-Bordeaux",
+  ville: "Saint-Caprais-de-Bordeaux",
+  adresse: null,          // ex. "12 rue de la Mairie, 33880 Saint-Caprais-de-Bordeaux"
   lieu: null,             // ex. "Salle polyvalente, 1er étage"
   email: null,            // ex. "contact@aprodisc.org"
   cotisation: null        // ex. "15 € par an"
 };
 
 /* ---------- Permanences ----------
-   L'association ouvre un mardi sur deux et un samedi sur deux.
-   Indiquez UNE date de permanence connue pour chaque jour :
-   le site calcule tout seul les suivantes (toutes les 2 semaines). */
+   Deux façons d'indiquer le rythme :
+     - semaines: "impaires" (ou "paires") → numéro de semaine du calendrier
+     - reference: "AAAA-MM-JJ" → une date connue, puis toutes les 2 semaines
+   Le site calcule tout seul les dates suivantes. */
 APRODISC.permanences = {
-  mardi:  { reference: "2026-10-13", horaire: null },   // ex. "14h – 17h"
-  samedi: { reference: "2026-10-17", horaire: null },   // ex. "9h30 – 12h"
+  samedi: { libelle: "Permanence", semaines: "impaires",
+            horaire: "14h30 – 22h (et souvent plus !)" },
+  mardi:  { libelle: "Atelier FabLab", semaines: "paires",   // à confirmer
+            horaire: "14h – 17h" },
   // Dates où l'association est exceptionnellement fermée (vacances, jours fériés…)
   fermetures: [
     // "2026-12-26",

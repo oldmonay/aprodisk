@@ -10,22 +10,57 @@
 <body data-page="accueil">
 <div id="entete"></div>
 
-<main id="contenu" class="wrap">
-  <section class="hero">
-    <h1>Bonjour ! Que souhaitez-vous faire&nbsp;?</h1>
-    <p>Faire réparer un appareil, apprendre l'informatique ou vous protéger des arnaques&nbsp;: tout est expliqué pas à pas, avec des mots simples.</p>
-    <form class="recherche" action="recherche.html" method="get" role="search">
-      <label for="q" class="lien-evitement">Rechercher sur le site</label>
-      <input id="q" name="q" type="search" placeholder="Ex. : faux SMS, lettre Word, mot de passe…">
-      <button type="submit">Chercher</button>
-    </form>
+<main id="contenu">
+  <section class="hero-bande">
+    <div class="wrap hero">
+      <div class="bulle-mascotte">
+        <svg class="mascotte" viewBox="0 0 400 380" role="img" aria-label="Un petit ordinateur rétro souriant qui fait coucou">
+          <!-- câble et souris -->
+          <path d="M120 300c-40 10-70 40-40 60s120 0 170-5" fill="none" stroke="#3a3550" stroke-width="5" stroke-linecap="round"/>
+          <ellipse cx="300" cy="352" rx="38" ry="20" fill="#e9e4f5" stroke="#1f1b2e" stroke-width="5"/>
+          <!-- jambes -->
+          <path d="M165 300v40M235 300v40" stroke="#1f1b2e" stroke-width="10" stroke-linecap="round"/>
+          <ellipse cx="160" cy="344" rx="22" ry="10" fill="#1f1b2e"/><ellipse cx="240" cy="344" rx="22" ry="10" fill="#1f1b2e"/>
+          <!-- bras -->
+          <path d="M95 190c-25 20-30 45-20 65" fill="none" stroke="#1f1b2e" stroke-width="9" stroke-linecap="round"/>
+          <path d="M305 175c30-10 45-40 40-75" fill="none" stroke="#1f1b2e" stroke-width="9" stroke-linecap="round"/>
+          <path d="M330 92l6-26M343 90l12-22M352 98l18-12M336 100l-10-18" stroke="#1f1b2e" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="342" cy="100" r="15" fill="#fff" stroke="#1f1b2e" stroke-width="5"/>
+          <!-- clavier / base -->
+          <path d="M80 250h240l20 50H60z" fill="#e8d9bd" stroke="#1f1b2e" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M100 265h200M95 280h210" stroke="#8a7d68" stroke-width="5" stroke-dasharray="10 6"/>
+          <!-- écran rétro -->
+          <rect x="95" y="60" width="210" height="190" rx="26" fill="#e8d9bd" stroke="#1f1b2e" stroke-width="6"/>
+          <rect x="118" y="82" width="164" height="128" rx="20" fill="#7fe3f2" stroke="#1f1b2e" stroke-width="5"/>
+          <rect x="128" y="92" width="144" height="108" rx="16" fill="#f4fbe8"/>
+          <circle cx="250" cy="228" r="6" fill="#5cc962"/><circle cx="268" cy="228" r="6" fill="#ff6b6b"/>
+          <!-- visage -->
+          <ellipse cx="172" cy="135" rx="8" ry="11" fill="#1f1b2e"/>
+          <ellipse cx="228" cy="135" rx="8" ry="11" fill="#1f1b2e"/>
+          <circle cx="152" cy="160" r="10" fill="#ffb3b3"/><circle cx="248" cy="160" r="10" fill="#ffb3b3"/>
+          <path d="M175 162c12 16 38 16 50 0" fill="none" stroke="#1f1b2e" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hero-texte">
+        <h1><span class="hero-titre">@PRODISC</span>Bonjour&nbsp;! 👋 L'informatique, <span class="surligne">c'est plus sympa à plusieurs</span></h1>
+        <p>Réparer un appareil, apprendre à son rythme, déjouer les arnaques ou bricoler au FabLab&nbsp;: nos bénévoles vous accueillent à Saint-Caprais-de-Bordeaux.</p>
+        <p class="hero-date">📅 Prochaine permanence&nbsp;: <b id="prochaine-date-hero">…</b></p>
+        <form class="recherche" action="recherche.html" method="get" role="search">
+          <label for="q" class="lien-evitement">Rechercher sur le site</label>
+          <input id="q" name="q" type="search" placeholder="Ex. : faux SMS, lettre Word…">
+          <button type="submit">🔍 Chercher</button>
+        </form>
+      </div>
+    </div>
   </section>
 
-  <h2 class="titre-section">Ce que fait l'association</h2>
-  <p class="sous-titre-section">Nos trois missions, choisissez celle qui vous intéresse.</p>
+  <div class="wrap">
+
+  <h2 class="titre-section">🤝 Ce que l'on fait ensemble</h2>
+  <p class="sous-titre-section">Nos trois missions&nbsp;: choisissez celle qui vous intéresse.</p>
   <div class="tuiles" id="tuiles-mission"></div>
 
-  <h2 class="titre-section">Tutoriels et activités</h2>
+  <h2 class="titre-section">🎒 Tutoriels et activités</h2>
   <p class="sous-titre-section">Pour aller plus loin, à votre rythme.</p>
   <div class="tuiles petites" id="tuiles-autres"></div>
 
@@ -49,6 +84,7 @@
       <a class="lien-plus" href="permanences.html">Adresse et toutes les dates →</a>
     </div>
   </section>
+  </div>
 </main>
 
 <div id="pied"></div>
